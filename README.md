@@ -79,8 +79,8 @@ app/
 ### 1. Clonar repositorios nativos
 
 ```bash
-git submodule add https://github.com/ggerganov/whisper.cpp native/whisper
-git submodule add https://github.com/ggerganov/llama.cpp native/llama
+git submodule add https://github.com/ggml-org/whisper.cpp native/whisper
+git submodule add https://github.com/ggml-org/llama.cpp native/llama
 ```
 
 ### 2. Descargar modelos
