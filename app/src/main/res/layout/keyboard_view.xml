@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/keyboard_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Status indicator -->
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/primary"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <!-- Microphone button row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/micButton"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/mic_button_bg"
+                android:contentDescription="@string/mic_button_content_desc"
+                android:src="@drawable/ic_mic" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
