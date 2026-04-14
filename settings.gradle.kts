@@ -12,6 +12,12 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+    // Declaración explícita del catálogo de versiones
+    versionCatalogs {
+        create("libs") {
+            from(files("gradle/libs.versions.toml"))
+        }
+    }
 }
 
 rootProject.name = "VoiceTypeKeyboard"
