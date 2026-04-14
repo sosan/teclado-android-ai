@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VoiceType Keyboard</string>
+    <string name="settings_title">Configuración VoiceType</string>
+    <string name="subtype_label">Español/Catalán</string>
+    <string name="mic_button_content_desc">Mantener para grabar</string>
+    
+    <!-- Estados del teclado -->
+    <string name="listening_text">Escuchando…</string>
+    <string name="processing_text">Procesando…</string>
+    <string name="idle_text">Listo</string>
+    
+    <!-- Errores -->
+    <string name="error_audio_permission">Permiso de micrófono requerido</string>
+    <string name="error_recording">Error al grabar audio</string>
+    <string name="error_transcription">Error en transcripción</string>
+    <string name="error_llm">Error en procesamiento de texto</string>
+    
+    <!-- Idiomas -->
+    <string name="language_auto">Automático (ES/CA)</string>
+    <string name="language_es">Español</string>
+    <string name="language_ca">Catalán</string>
+    
+    <!-- Botones -->
+    <string name="btn_space">Espacio</string>
+    <string name="btn_delete">Borrar</string>
+    <string name="btn_settings">Ajustes</string>
+    <string name="btn_enter">Intro</string>
+</resources>
