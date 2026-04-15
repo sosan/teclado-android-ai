@@ -60,8 +60,8 @@ add_library(whisper_wrapper SHARED
 )
 
 target_include_directories(whisper_wrapper PRIVATE
-        ${WHISPER_DIR}/include
-        ${WHISPER_DIR}/ggml/include
+    ${WHISPER_DIR}/include
+    ${WHISPER_DIR}/ggml/include
 )
 
 target_link_libraries(whisper_wrapper
