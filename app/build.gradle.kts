@@ -64,6 +64,7 @@ dependencies {
     // Activity & Lifecycle
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.material)
 
     debugImplementation(libs.androidx.compose.ui.tooling)
 }
