@@ -5,12 +5,11 @@ project(VoiceTypeKeyboard)
 # ==========================================
 # CONFIGURACIÓN DE RUTAS
 # ==========================================
-# Los repositorios whisper.cpp y llama.cpp deben estar en ../../native/
-# Es decir: app/src/main/jni/../../native/whisper
-# Que equivale a: app/native/whisper desde la raíz del proyecto
+# Los repositorios whisper.cpp y llama.cpp deben estar en la raíz del proyecto: native/whisper y native/llama
+# Desde app/src/main/jni/, necesitamos subir 4 niveles para llegar a la raíz: ../../../../native/
 
-set(WHISPER_DIR ${CMAKE_SOURCE_DIR}/../../native/whisper)
-set(LLAMA_DIR ${CMAKE_SOURCE_DIR}/../../native/llama)
+set(WHISPER_DIR ${CMAKE_SOURCE_DIR}/../../../../native/whisper)
+set(LLAMA_DIR ${CMAKE_SOURCE_DIR}/../../../../native/llama)
 
 # ==========================================
 # 1. WHISPER.CPP
@@ -59,8 +58,13 @@ add_library(whisper_wrapper SHARED
     whisper_wrapper.cpp
 )
 
+target_include_directories(whisper_wrapper PRIVATE
+    ${WHISPER_DIR}/include
+    ${WHISPER_DIR}/ggml/include
+)
+
 target_link_libraries(whisper_wrapper
-    whisper_cpp      # Target creado por whisper.cpp
+    whisper
     android
     log
 )
@@ -72,8 +76,14 @@ add_library(llama_wrapper SHARED
     llama_wrapper.cpp
 )
 
+target_include_directories(llama_wrapper PRIVATE
+    ${LLAMA_DIR}/include
+    ${LLAMA_DIR}/ggml/include
+    ${LLAMA_DIR}/src
+)
+
 target_link_libraries(llama_wrapper
-    llama_cpp        # Target creado por llama.cpp
+    llama
     android
     log
 )

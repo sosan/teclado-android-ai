@@ -1,64 +1,28 @@
 ```
-# Build artifacts
-*.o
-*.obj
-*.so
-*.a
-*.dylib
-*.dll
-*.exe
-*.out
+# Gradle
+.gradle/
+build/
+target/
 
-# CMake build directory (common for JNI projects)
-CMakeFiles/
-cmake_install.cmake
-CMakeCache.txt
-Makefile
+# Local configuration
+local.properties
 
-# Android build artifacts
-app/build/
-app/src/main/obj/
-app/src/main/libs/
-
-# Dependencies
-node_modules/
-venv/
-.venv/
-__pycache__/
-*.egg-info/
-.Python
-
-# IDE files
-.vscode/
+# IDE
 .idea/
-*.swp
-*.swo
-*~
+.vscode/
 
 # Logs
 *.log
 
+# Temporary files
+*.tmp
+*.swp
+
 # Environment
 .env
 .env.local
-.env.*
+*.env.*
 
-# Coverage reports
-coverage/
-htmlcov/
-.coverage
-
-# Gradle (if present in Android project)
-.gradle/
-build/
-
-# Temporary files
-*.tmp
-.DS_Store
-Thumbs.db
-
-# MyPy cache
-.mypy_cache/
-# Pytest cache
-.pytest_cache/
+# Dependencies
+node_modules/
 ```
