@@ -62,3 +62,5 @@ Thumbs.db
 # Pytest cache
 .pytest_cache/
 ```
+local.properties
+.cxx/
