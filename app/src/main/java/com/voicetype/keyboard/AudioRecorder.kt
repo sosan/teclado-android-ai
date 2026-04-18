@@ -27,6 +27,7 @@ class AudioRecorder {
     private var audioRecord: AudioRecord? = null
     private var isRecording = false
     private var recordingJob: Job? = null
+    private var bufferSize: Int = 0
     
     companion object {
         private const val SAMPLE_RATE = 16000
@@ -45,7 +46,7 @@ class AudioRecorder {
     fun startRecording(outputFile: File) {
         if (isRecording) return
 
-        val bufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, CHANNEL_CONFIG, AUDIO_FORMAT) * BUFFER_SIZE_MULTIPLIER
+        bufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, CHANNEL_CONFIG, AUDIO_FORMAT) * BUFFER_SIZE_MULTIPLIER
         
         audioRecord = AudioRecord(
             MediaRecorder.AudioSource.MIC,
@@ -87,7 +88,7 @@ class AudioRecorder {
     }
 
     private suspend fun writeAudioDataToFile(outputFile: File) {
-        val bufferSize = audioRecord?.bufferSizeInBytes ?: return
+        if (bufferSize <= 0) return
         
         try {
             FileOutputStream(outputFile).use { fos ->

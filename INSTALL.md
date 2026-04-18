@@ -61,11 +61,8 @@ Los modelos son archivos binarios pre-entrenados en formato GGUF.
 
 ```bash
 mkdir -p app/src/main/assets/models
-
-cd app/src/main/assets/models
-
 # Opción A: Modelo base (recomendado - equilibrio precisión/velocidad)
-wget https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.bin
+wget -O app/src/main/assets/models/ggml-base.bin https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.bin
 # Tamaño: ~145 MB | Tiempo inferencia: 0.5-2s
 
 # Opción B: Modelo tiny (más rápido, menos preciso)
@@ -77,18 +74,16 @@ wget https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.bin
 # Tamaño: ~244 MB | Tiempo inferencia: 1-3s
 ```
 
-#### 2.2 Phi-3 Mini (LLM - Mejora de texto)
+#### 2.2 Qwen 2.5 1.5B (LLM - Recomendado para teclados)
 
 ```bash
-cd app/src/main/assets/models
+# Qwen 2.5 1.5B Instruct cuantizado 4-bit (Equilibrio perfecto velocidad/memoria)
+wget -O app/src/main/assets/models/qwen2.5-1.5b-instruct-q4_k_m.gguf https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/qwen2.5-1.5b-instruct-q4_k_m.gguf
+# Tamaño: ~1.1 GB | Tiempo inferencia: 0.1-0.4s | RAM recomendada: 4GB+
 
-# Phi-3 Mini 4K Instruct cuantizado 4-bit (recomendado)
-wget https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-q4.gguf
-# Tamaño: ~2.3 GB | Tiempo inferencia: 0.3-1s
-
-# Alternativa más ligera: Gemma 2B
-# wget https://huggingface.co/google/gemma-2b-it-GGUF/resolve/main/gemma-2b-it-q4_k_m.gguf
-# Tamaño: ~1.5 GB | Tiempo inferencia: 0.2-0.8s
+# Opción para móviles potentes: Qwen 2.5 3B Instruct
+# wget -O app/src/main/assets/models/qwen2.5-3b-instruct-q4_k_m.gguf https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/main/qwen2.5-3b-instruct-q4_k_m.gguf
+# Tamaño: ~1.9 GB | Tiempo inferencia: 0.3-0.8s | RAM recomendada: 8GB+
 ```
 
 **Verificación:**
@@ -96,7 +91,7 @@ wget https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/P
 ls -lh app/src/main/assets/models/
 # Deberías ver:
 # ggml-base.bin (~145M)
-# Phi-3-mini-4k-instruct-q4.gguf (~2.3G)
+# qwen2.5-3b-instruct-q4_k_m.gguf (~1.9G)
 ```
 
 ---

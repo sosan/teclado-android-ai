@@ -13,7 +13,27 @@ set(WHISPER_DIR ${CMAKE_SOURCE_DIR}/../../../../native/whisper)
 set(LLAMA_DIR ${CMAKE_SOURCE_DIR}/../../../../native/llama)
 
 # ==========================================
-# 1. WHISPER.CPP
+# 1. LLAMA.CPP
+# ==========================================
+if(EXISTS ${LLAMA_DIR}/CMakeLists.txt)
+    # Optimizaciones para Android
+    set(LLAMA_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+    set(LLAMA_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+    set(LLAMA_BUILD_SERVER OFF CACHE BOOL "" FORCE)
+    set(LLAMA_BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+
+    add_subdirectory(${LLAMA_DIR} llama_build)
+else()
+    message(FATAL_ERROR
+            "Llama.cpp no encontrado en: ${LLAMA_DIR}\n"
+            "Ejecuta desde la raíz del proyecto:\n"
+            "  git submodule add https://github.com/ggml-org/llama.cpp native/llama\n"
+            "  git submodule update --init --recursive"
+    )
+endif()
+
+# ==========================================
+# 2. WHISPER.CPP
 # ==========================================
 if(EXISTS ${WHISPER_DIR}/CMakeLists.txt)
     # Optimizaciones para Android
@@ -28,26 +48,6 @@ else()
         "Whisper.cpp no encontrado en: ${WHISPER_DIR}\n"
         "Ejecuta desde la raíz del proyecto:\n"
         "  git submodule add https://github.com/ggml-org/whisper.cpp native/whisper\n"
-        "  git submodule update --init --recursive"
-    )
-endif()
-
-# ==========================================
-# 2. LLAMA.CPP
-# ==========================================
-if(EXISTS ${LLAMA_DIR}/CMakeLists.txt)
-    # Optimizaciones para Android
-    set(LLAMA_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-    set(LLAMA_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-    set(LLAMA_BUILD_SERVER OFF CACHE BOOL "" FORCE)
-    set(LLAMA_BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
-    
-    add_subdirectory(${LLAMA_DIR} llama_build)
-else()
-    message(FATAL_ERROR 
-        "Llama.cpp no encontrado en: ${LLAMA_DIR}\n"
-        "Ejecuta desde la raíz del proyecto:\n"
-        "  git submodule add https://github.com/ggml-org/llama.cpp native/llama\n"
         "  git submodule update --init --recursive"
     )
 endif()

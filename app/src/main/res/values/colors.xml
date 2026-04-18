@@ -7,4 +7,8 @@
     <color name="mic_recording">#F44336</color>
     <color name="mic_processing">#FF9800</color>
     <color name="keyboard_background">#FFFFFF</color>
+    <color name="recording_red">#D32F2F</color>
+    <color name="processing_orange">#F57C00</color>
+    <color name="processing_blue">#1976D2</color>
+    <color name="white">#FFFFFF</color>
 </resources>

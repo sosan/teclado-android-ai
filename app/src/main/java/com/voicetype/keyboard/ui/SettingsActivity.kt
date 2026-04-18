@@ -9,10 +9,10 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Language
-import androidx.compose.material.icons.filled.Mic
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -66,7 +66,7 @@ fun SettingsScreen(onBackPressed: () -> Unit) {
                 title = { Text("Configuración") },
                 navigationIcon = {
                     IconButton(onClick = onBackPressed) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Volver")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Volver")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -127,7 +127,7 @@ fun LanguageSection(selectedLanguage: String, onLanguageSelected: (String) -> Un
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Icon(
-                    Icons.Default.Language,
+                    Icons.AutoMirrored.Filled.List,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary
                 )
@@ -152,7 +152,7 @@ fun LanguageSection(selectedLanguage: String, onLanguageSelected: (String) -> Un
                 onClick = { onLanguageSelected("auto") }
             )
             
-            Divider()
+            HorizontalDivider()
             
             LanguageOption(
                 label = "🇪🇸 Español",
@@ -161,7 +161,7 @@ fun LanguageSection(selectedLanguage: String, onLanguageSelected: (String) -> Un
                 onClick = { onLanguageSelected("es") }
             )
             
-            Divider()
+            HorizontalDivider()
             
             LanguageOption(
                 label = "🏴 Català",
@@ -233,7 +233,7 @@ fun InstructionsCard() {
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Icon(
-                    Icons.Default.Mic,
+                    Icons.Default.Settings,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.onSecondaryContainer
                 )

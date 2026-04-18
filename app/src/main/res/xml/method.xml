@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <input-method xmlns:android="http://schemas.android.com/apk/res/android"
     android:icon="@drawable/ic_mic"
-    android:settingsActivity="com.voicetype.keyboard.ui.SettingsActivity">
+    android:settingsActivity="com.voicetype.keyboard.ui.SettingsActivity"
+    android:isDefault="false">
     
+    <!-- Subtipo Español -->
     <subtype
-        android:label="@string/subtype_label"
+        android:label="Español (Voz)"
         android:imeSubtypeLocale="es_ES"
+        android:imeSubtypeMode="voice" />
+    
+    <!-- Subtipo Catalán -->
+    <subtype
+        android:label="Català (Veu)"
+        android:imeSubtypeLocale="ca_ES"
+        android:imeSubtypeMode="voice" />
+        
+    <!-- Subtipo Genérico / Auto-detect -->
+    <subtype
+        android:label="Auto-Detect"
+        android:imeSubtypeLocale="" 
         android:imeSubtypeMode="voice" />
     
 </input-method>
